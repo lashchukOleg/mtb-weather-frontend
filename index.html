@@ -72,7 +72,7 @@ document.getElementById('regForm').onsubmit = async (e) => {
     };
 
     // ЗАМЕНИ НА СВОЮ ССЫЛКУ ОТ RENDER
-    const response = await fetch('https://mtb-weather-backend.onrender.com//api/register', {
+    const response = await fetch('https://mtb-weather-backend.onrender.com/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
