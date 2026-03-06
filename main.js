@@ -122,7 +122,7 @@ regForm.addEventListener('submit', async (e) => {
     const email = document.getElementById('emailInput').value;
     const password = document.getElementById('passwordInput').value;
 
-    // ВАЖНО: Замени на свою реальную ссылку от Render!
+    
     const API_URL = 'https://mtb-weather-backend.onrender.com/api/register';
 
     try {
