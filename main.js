@@ -113,15 +113,22 @@ if (trailForm) {
     loadTrails();
 }
 
-document.getElementById('registerForm').addEventListener('submit', async (e) => {
+const regForm = document.getElementById('registrationForm');
+const statusMessage = document.getElementById('statusMessage');
+
+regForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const email = document.getElementById('regEmail').value;
-    const password = document.getElementById('regPassword').value;
-    const messageElement = document.getElementById('message');
+
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
+
+    // ВАЖНО: Замени на свою реальную ссылку от Render!
+    const API_URL = 'https://mtb-weather-backend.onrender.com/api/register';
 
     try {
-        const response = await fetch('https://mtb-weather-backend.onrender.com/api/register', {
+        statusMessage.innerText = "Отправка данных...";
+        
+        const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -130,13 +137,16 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
         const data = await response.json();
 
         if (response.ok) {
-            messageElement.style.color = "green";
-            messageElement.innerText = data.message;
+            statusMessage.style.color = "green";
+            statusMessage.innerText = data.message;
+            regForm.reset(); // Очистить форму
         } else {
-            messageElement.style.color = "red";
-            messageElement.innerText = data.message;
+            statusMessage.style.color = "red";
+            statusMessage.innerText = data.message || "Ошибка регистрации";
         }
     } catch (error) {
-        messageElement.innerText = "Ошибка соединения с сервером";
+        statusMessage.style.color = "red";
+        statusMessage.innerText = "Сервер недоступен. Попробуйте позже.";
+        console.error("Ошибка:", error);
     }
 });
