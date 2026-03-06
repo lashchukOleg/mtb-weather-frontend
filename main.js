@@ -113,40 +113,56 @@ if (trailForm) {
     loadTrails();
 }
 
-const regForm = document.getElementById('registrationForm');
-const statusMessage = document.getElementById('statusMessage');
-
-regForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById('emailInput').value;
-    const password = document.getElementById('passwordInput').value;
-
+// 1. Ждем, пока вся страница загрузится
+document.addEventListener('DOMContentLoaded', () => {
     
-    const API_URL = 'https://mtb-weather-backend.onrender.com/api/register';
+    // 2. Ищем форму по ID. ПРОВЕРЬ, ЧТО В HTML У ТЕБЯ id="registrationForm"
+    const regForm = document.getElementById('registrationForm');
 
-    try {
-        statusMessage.innerText = "Отправка данных...";
-        
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            statusMessage.style.color = "green";
-            statusMessage.innerText = data.message;
-            regForm.reset(); // Очистить форму
-        } else {
-            statusMessage.style.color = "red";
-            statusMessage.innerText = data.message || "Ошибка регистрации";
-        }
-    } catch (error) {
-        statusMessage.style.color = "red";
-        statusMessage.innerText = "Сервер недоступен. Попробуйте позже.";
-        console.error("Ошибка:", error);
+    // Проверка: если форма не найдена, скрипт сразу об этом скажет
+    if (!regForm) {
+        console.error("❌ Ошибка: Форма с id='registrationForm' не найдена в HTML!");
+        return;
     }
+
+    console.log("✅ Скрипт успешно нашел форму, жду нажатия кнопки...");
+
+    // 3. Вешаем обработчик события
+    regForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Останавливаем перезагрузку страницы
+
+        console.log("🚀 Кнопка нажата! Начинаю сбор данных...");
+
+        const email = document.getElementById('emailInput').value;
+        const password = document.getElementById('passwordInput').value;
+        const statusMessage = document.getElementById('statusMessage');
+
+        // ВАЖНО: Убедись, что ссылка ведет на твой Render без ошибок 404
+        const API_URL = 'https://mtb-weather-backend.onrender.com/api/register';
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("✅ Ответ от сервера:", data.message);
+                statusMessage.innerText = data.message;
+                statusMessage.style.color = "green";
+                regForm.reset();
+            } else {
+                console.warn("⚠️ Сервер вернул ошибку:", data.message);
+                statusMessage.innerText = data.message;
+                statusMessage.style.color = "red";
+            }
+        } catch (error) {
+            console.error("❌ Критическая ошибка fetch:", error);
+            statusMessage.innerText = "Ошибка: не удалось связаться с сервером.";
+            statusMessage.style.color = "red";
+        }
+    });
 });
