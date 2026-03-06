@@ -112,3 +112,31 @@ if (trailForm) {
     // Uruchom ładowanie przy starcie
     loadTrails();
 }
+
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
+    const messageElement = document.getElementById('message');
+
+    try {
+        const response = await fetch('https://mtb-weather-backend.onrender.com/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            messageElement.style.color = "green";
+            messageElement.innerText = data.message;
+        } else {
+            messageElement.style.color = "red";
+            messageElement.innerText = data.message;
+        }
+    } catch (error) {
+        messageElement.innerText = "Ошибка соединения с сервером";
+    }
+});
