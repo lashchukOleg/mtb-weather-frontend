@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTB Weather - Prognoza pogody</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                MTB Weather
+            </a>
+            
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="prognoza.html" class="active">Prognoza</a></li>
+                <li><a href="trasy.html">Trasy</a></li>
+                <li><a href="wideo.html">Wideo</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="forecast-section">
+            <div class="container">
+                <h2>Sprawdź prognozę dla dowolnej lokalizacji</h2>
+                <p>Wpisz nazwę miasta lub regionu, aby zobaczyć aktualne warunki i rekomendacje.</p>
+                
+                <form class="search-form" id="weather-form">
+                    <input type="text" id="city-input" placeholder="Np. Bielsko-Biała, Karpacz..." aria-label="Wpisz nazwę miasta">
+                    <button type="submit" class="btn">Szukaj 🌦️</button>
+                </form>
+                
+                <div id="weather-results" class="weather-results-container">
+                    </div>
+
+            </div>
+        </section>
+
+        
+    </main>
+<script src="main.js"></script>
+</body>
+</html>
