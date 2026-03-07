@@ -15,7 +15,7 @@ function toggleAuth() {
     }
 }
 
-const API_BASE = 'https://mtb-weather-backend.onrender.com/api';
+const API_BASE = 'https://mtb-weather-backend.onrender.com/api/register';
 
 // Функция для отправки запроса
 async function sendAuthRequest(path, data) {
