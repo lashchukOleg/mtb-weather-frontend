@@ -3,10 +3,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f2f5; /* Светло-серый фон */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
     margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /* Контейнер всей формы */
@@ -18,6 +20,7 @@ body {
     width: 100%;
     max-width: 400px; /* Чтобы на компе не было слишком широко */
     text-align: center;
+    margin: 50px auto;
 }
 
 h2 {
@@ -76,7 +79,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Тот самый блок для сообщений об успехе/ошибке */
+
 #statusMessage {
     min-height: 20px; /* Чтобы текст не «дергал» форму при появлении */
     margin-top: 15px;
@@ -91,12 +94,64 @@ a:hover {
     }
 }
 
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    color: #000000;
+.main-header {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #ffffff;
+    
+}
+
+.main-header nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1%;    
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 0%;
+}
+
+.main-header .logo {
+    font-family: arial;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    font-weight: bold;
+}
+
+.main-header .logo:hover {
+    color: #242424;
+    text-decoration: none;
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    margin-left: 25px;
+    font-family: arial;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 700;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.main-header nav ul li a.login {
+    color: white;
+    background: #6D7546;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
 }

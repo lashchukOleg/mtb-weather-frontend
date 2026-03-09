@@ -16,11 +16,12 @@
         <nav class="container">
             <a href="index.html" class="logo">MTB Weather</a>
             <ul>
-                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="index.html" class="active">Strona Główna</a></li>
                 <li><a href="prognoza.html">Prognoza</a></li>
-                <li><a href="trasy.html" class="active">Trasy</a></li>
+                <li><a href="trasy.html">Trasy</a></li>
                 <li><a href="wideo.html">Wideo</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="auth.html" class="login">Log in</a></li>
             </ul>
         </nav>
     </header>
@@ -48,29 +49,6 @@
         </section>
     </main>
 
-    <section class="add-trail-section">
-    <div class="container">
-        <h3>Udostępnij swoją trasę</h3>
-        <form id="add-trail-form" class="modern-form">
-            <div class="form-group">
-                <input type="text" id="trail-name" placeholder="Nazwa trasy (np. Singletrack pod Smrekiem)" required>
-            </div>
-            <div class="form-group">
-                <select id="trail-difficulty">
-                    <option value="easy">Łatwa (Zielona)</option>
-                    <option value="medium">Średnia (Niebieska)</option>
-                    <option value="hard">Trudna (Czarna)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="text" id="trail-link" placeholder="Link do Google Maps lub Stravy" required>
-            </div>
-            <button type="submit" class="btn">Dodaj trasę na listę 🏔️</button>
-        </form>
-
-        <div id="user-trails-list" class="user-trails-grid"></div>
-    </div>
-</section>
 
     <script src="js/main.js"></script>
 </body>

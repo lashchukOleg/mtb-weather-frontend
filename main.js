@@ -68,48 +68,5 @@ function displayWeather(data) {
     `;
 }
 
-const trailForm = document.getElementById('add-trail-form');
-const trailsList = document.getElementById('user-trails-list');
 
-// Funkcja ładująca trasy przy starcie strony
-function loadTrails() {
-    const savedTrails = JSON.parse(localStorage.getItem('userTrails')) || [];
-    trailsList.innerHTML = '';
-    savedTrails.forEach(trail => renderTrail(trail));
-}
-
-// Funkcja wyświetlająca pojedynczą kartę trasy
-function renderTrail(trail) {
-    const card = document.createElement('div');
-    card.className = 'trail-card';
-    card.innerHTML = `
-        <span class="difficulty-tag tag-${trail.difficulty}">${trail.difficulty}</span>
-        <h4>${trail.name}</h4>
-        <a href="${trail.link}" target="_blank" class="btn-small">Zobacz na mapie</a>
-    `;
-    trailsList.appendChild(card);
-}
-
-if (trailForm) {
-    trailForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const newTrail = {
-            name: document.getElementById('trail-name').value,
-            difficulty: document.getElementById('trail-difficulty').value,
-            link: document.getElementById('trail-link').value
-        };
-
-        // Zapis do LocalStorage
-        const currentTrails = JSON.parse(localStorage.getItem('userTrails')) || [];
-        currentTrails.push(newTrail);
-        localStorage.setItem('userTrails', JSON.stringify(currentTrails));
-
-        renderTrail(newTrail);
-        trailForm.reset();
-    });
-
-    // Uruchom ładowanie przy starcie
-    loadTrails();
-}
 

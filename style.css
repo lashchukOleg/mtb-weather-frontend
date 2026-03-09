@@ -8,6 +8,7 @@
     background-color: #ffffff;
 }
 
+
 .main-header nav.container {
     display: flex;
     justify-content: space-between;
@@ -15,7 +16,7 @@
     padding-top: 1%;    
     padding-bottom: 1%;
     padding-left: 2%;
-    padding-right: 2%;
+    padding-right: 0%;
 }
 
 .main-header .logo {
@@ -29,7 +30,6 @@
 .main-header .logo:hover {
     color: #242424;
     text-decoration: none;
-    text-shadow: 1px 1px 0px;
 }
 
 .main-header nav ul {
@@ -52,10 +52,16 @@
     transition: color 0.3s ease;
 }
 
-.main-header nav ul li a.active {
-    color: #6D7546;
-    border-bottom: 3px solid var(--color-accent);
+.main-header nav ul li a.login {
+    color: white;
+    background: #6D7546;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
 }
+
+
 
 .hero {
     background-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070');

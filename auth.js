@@ -28,26 +28,22 @@ async function sendAuthRequest(path, data) {
         });
 
         const result = await response.json();
-        status.innerText = result.message;
-        status.style.color = response.ok ? "green" : "red";
+        
+        if (response.ok) {
+            if (result.token) {
+                // СОХРАНЯЕМ ТОКЕН
+                localStorage.setItem('token', result.token); 
+                status.innerText = "Успех! Переходим в профиль...";
+                setTimeout(() => window.location.href = 'profile.html', 1500);
+            } else {
+                status.innerText = result.message;
+            }
+            status.style.color = "green";
+        } else {
+            status.innerText = result.message;
+            status.style.color = "red";
+        }
     } catch (e) {
         status.innerText = "Ошибка связи с сервером";
-        status.style.color = "red";
     }
 }
-
-// Слушатель для Входа
-document.getElementById('loginForm').onsubmit = (e) => {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    sendAuthRequest('/login', { email, password });
-};
-
-// Слушатель для Регистрации
-document.getElementById('registerForm').onsubmit = (e) => {
-    e.preventDefault();
-    const email = document.getElementById('regEmail').value;
-    const password = document.getElementById('regPassword').value;
-    sendAuthRequest('/register', { email, password });
-};
