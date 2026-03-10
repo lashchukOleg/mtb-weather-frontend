@@ -1,4 +1,27 @@
+// Ждем загрузки всей страницы, чтобы ID точно были видны скрипту
+document.addEventListener('DOMContentLoaded', () => {
 
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    if (loginForm) {
+        loginForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            await sendAuthRequest('/login', { email, password });
+        };
+    }
+
+    if (registerForm) {
+        registerForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            await sendAuthRequest('/register', { email, password });
+        };
+    }
+});
 
 function toggleAuth() {
     const loginBlock = document.getElementById('loginBlock');
