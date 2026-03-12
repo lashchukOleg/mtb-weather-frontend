@@ -1,6 +1,14 @@
 // Ждем загрузки всей страницы, чтобы ID точно были видны скрипту
 document.addEventListener('DOMContentLoaded', () => {
 
+// ПРОВЕРКА: Если токен уже есть, отправляем в профиль сразу
+    const savedToken = localStorage.getItem('token');
+    if (savedToken) {
+        console.log("🎫 Токен найден, перенаправляю в профиль...");
+        window.location.href = 'profile.html';
+        return; // Останавливаем выполнение остального скрипта
+    }
+
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
 
