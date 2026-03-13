@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Мой Профиль</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - MTB Weather</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,29 +12,32 @@
         <nav class="container">
             <a href="index.html" class="logo">MTB Weather</a>
             <ul>
-                <li><a href="index.html" class="active">Strona Główna</a></li>
-                <li><a href="prognoza.html">Prognoza</a></li>
-                <li><a href="trasy.html">Trasy</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="prognoza.html">Forecast</a></li>
+                <li><a href="trasy.html">Trails</a></li>
                 
-                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="kontakt.html">Contact</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
                 <li><a href="auth.html" class="login">Log in</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="auth-container">
-        <h2>Личный кабинет</h2>
-        <div id="profileData">
-            <p><strong>Email:</strong> <span id="userEmail">Загрузка...</span></p>
-            <button onclick="logout()">Выйти</button>
+    <main>
+        <div class="auth-container">
+            <h2>My Profile</h2>
+            <div id="profileData">
+                <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+                <button onclick="logout()">Log Out</button>
+            </div>
         </div>
-    </div>
+    </main>
 
     <script>
         async function loadProfile() {
-            const token = localStorage.getItem('token'); // Берем токен из памяти браузера
+            const token = localStorage.getItem('token');
             if (!token) {
-                window.location.href = 'auth.html'; // Если нет токена — на вход
+                window.location.href = 'auth.html';
                 return;
             }
 
@@ -45,7 +49,7 @@
                 const user = await response.json();
                 document.getElementById('userEmail').innerText = user.email;
             } else {
-                logout(); // Если токен плохой — выходим
+                logout();
             }
         }
 

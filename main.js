@@ -18,14 +18,14 @@ if (weatherForm) {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pl`);
             
             if (!response.ok) {
-                throw new Error('Nie znaleziono miasta. Spróbuj ponownie.');
+                throw new Error('City not found. Please try again.');
             }
 
             const data = await response.json();
             displayWeather(data);
 
         } catch (error) {
-            weatherResults.innerHTML = `<p style="color: red;">Błąd: ${error.message}</p>`;
+            weatherResults.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
         }
     });
 }
@@ -40,28 +40,28 @@ function displayWeather(data) {
     
     let recommendation = "";
     if (temp > 10 && temp < 25 && wind.speed < 8) {
-        recommendation = "✅ Warunki idealne na tripa! Pamiętaj o nawodnieniu.";
+        recommendation = "Perfect conditions for a trip! Remember to stay hydrated.";
     } else if (temp <= 5) {
-        recommendation = "⚠️ Zimno! Załóż bieliznę termoaktywną i grubsze rękawiczki.";
+        recommendation = "Cold! Wear thermal underwear and thicker gloves.";
     } else if (wind.speed >= 8) {
-        recommendation = "💨 Silny wiatr! Uważaj na odsłoniętych grzbietach i skokach.";
+        recommendation = "Strong wind! Be careful on exposed ridges and jumps.";
     } else {
-        recommendation = "🚲 Warunki są OK, ale sprawdź prognozę opadów przed wyjazdem.";
+        recommendation = "Conditions are OK, but check the precipitation forecast before leaving.";
     }
 
     weatherResults.innerHTML = `
         <div class="weather-card">
-            <h3>Pogoda w: ${name}</h3>
+            <h3>Weather in: ${name}</h3>
             <div class="weather-info">
                 <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${desc}">
                 <div class="temp">${temp}°C</div>
                 <div class="details">
-                    <p><strong>Stan:</strong> ${desc}</p>
-                    <p><strong>Wiatr:</strong> ${windSpeed} km/h</p>
+                    <p><strong>Condition:</strong> ${desc}</p>
+                    <p><strong>Wind:</strong> ${windSpeed} km/h</p>
                 </div>
             </div>
             <div class="mtb-tip">
-                <strong>Rekomendacja MTB:</strong><br>
+                <strong>MTB Recommendation:</strong><br>
                 ${recommendation}
             </div>
         </div>

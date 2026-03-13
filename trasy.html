@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTB Weather - Popularne Trasy</title>
+    <title>MTB Weather - Popular Trails</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,40 +13,164 @@
         <nav class="container">
             <a href="index.html" class="logo">MTB Weather</a>
             <ul>
-                <li><a href="index.html" class="active">Strona Główna</a></li>
-                <li><a href="prognoza.html">Prognoza</a></li>
-                <li><a href="trasy.html">Trasy</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="prognoza.html">Forecast</a></li>
+                <li><a href="trasy.html" class="active">Trails</a></li>
                 
-                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="kontakt.html">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
                 <li><a href="auth.html" class="login">Log in</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="trails-section">
+        <!-- Hero Intro Section -->
+        <section class="trails-intro">
             <div class="container">
-                <h2>Najlepsze trasy MTB w zasięgu ręki</h2>
-                <p>Odkryj najpopularniejsze bike parki i ścieżki enduro. Mapa zawiera wyselekcjonowane miejsca idealne na Twoją kolejną przygodę.</p>
-                
-                <div class="map-wrapper">
-                    <div class="map-wrapper">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d81577.6322986423!2d15.688176510343753!3d50.75150531558913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec3747124f0c7%3A0xc0672e1f40071336!2sKarkonoski%20Park%20Narodowy!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
-        width="100%" 
-        height="600" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
+                <h1>Discover the Best MTB Trails in Poland</h1>
+                <p class="intro-text">Plan the perfect ride with our interactive trail map. Check weather conditions and choose trails that match your skill level.</p>
+            </div>
+        </section>
+
+        <!-- Trail Categories Section -->
+        <section class="trail-categories">
+            <div class="container">
+                <h2>Trail Types</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon"></div>
+                        <h3>Enduro</h3>
+                        <p>Long trails with challenges at every step.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon"></div>
+                        <h3>Downhill</h3>
+                        <p>Fast descents for experienced cyclists.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon"></div>
+                        <h3>Cross-Country</h3>
+                        <p>Recreational trails through forest areas.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon"></div>
+                        <h3>Bike Park</h3>
+                        <p>Professional tracks with prepared challenges.</p>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Main Map Section with Modern Design -->
+        <section class="trails-map-section">
+            <div class="container">
+                <div class="map-section-header">
+                    <h2>Interactive Trail Map</h2>
+                    <p>Karkonoski Region - Paradise for Mountain Bikers</p>
+                </div>
+
+                <div class="map-container-modern">
+                    <div class="map-left-info">
+                        <div class="info-badge">
+                            <span class="badge-number"></span>
+                            <p>Karkonoski National Park</p>
+                        </div>
+                        <div class="info-features">
+                            <h3>Highlights</h3>
+                            <ul class="features-list">
+                                <li>
+                                    <span class="feature-icon"></span>
+                                    <div>
+                                        <strong>250+ km trails</strong>
+                                        <p>From easy to advanced</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="feature-icon"></span>
+                                    <div>
+                                        <strong>Elevation 1500m</strong>
+                                        <p>For all levels</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="feature-icon"></span>
+                                    <div>
+                                        <strong>Beautiful Nature</strong>
+                                        <p>Mountain and forest views</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="map-right-wrapper">
+                        <div class="map-wrapper-modern">
+                            <div class="map-header-badge">
+                                <span>Interactive Map</span>
+                            </div>
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d81577.6322986423!2d15.688176510343753!3d50.75150531558913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec3747124f0c7%3A0xc0672e1f40071336!2sKarkonoski%20Park%20Narodowy!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Tips and Gear Section -->
+                <div class="map-info-section">
+                    <div class="info-card-modern">
+                        <div class="info-card-icon"></div>
+                        <h3>Safety Tips</h3>
+                        <ul class="info-list-modern">
+                            <li>Always check the weather forecast before leaving</li>
+                            <li>Wear full protective gear (helmet, gloves, goggles)</li>
+                            <li>Choose trails that match your skill level</li>
+                            <li>Riding with a friend is always safer</li>
+                            <li>Take care of your bike maintenance before riding</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card-modern">
+                        <div class="info-card-icon"></div>
+                        <h3>What to Bring</h3>
+                        <ul class="info-list-modern">
+                            <li>Water and energy drinks</li>
+                            <li>Map and GPS or offline smartphone</li>
+                            <li>Set of tools (spoke wrench, pump, keys)</li>
+                            <li>Bandage and first aid kit</li>
+                            <li>Flashlight or headlamp (evening)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card-modern">
+                        <div class="info-card-icon"></div>
+                        <h3>Check the Weather</h3>
+                        <ul class="info-list-modern">
+                            <li>Rain can make trails dangerous</li>
+                            <li>Strong wind makes riding difficult on open areas</li>
+                            <li>Low temperature requires additional clothing</li>
+                            <li>High humidity affects tire grip</li>
+                            <li>Check the forecast before every ride!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="trails-cta">
+            <div class="container">
+                <h2>Ready for Adventure?</h2>
+                <p>Check the current weather forecast and plan the perfect day on the trail!</p>
+                <a href="prognoza.html" class="btn">Check Forecast</a>
             </div>
         </section>
     </main>
 
-
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -2,50 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login and Registration</title>
-    <link rel="stylesheet" href="auth.css"> </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration - MTB Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-     <header class="main-header">
+    <header class="main-header">
         <nav class="container">
             <a href="index.html" class="logo">
                 MTB Weather
             </a>
             
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="prognoza.html">Forecast</a></li>
                 <li><a href="trasy.html">Trails</a></li>
                 
                 <li><a href="kontakt.html">Contact</a></li>
-                <li><a href="auth.html" class="login">Log in</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="auth.html" class="login active">Log in</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="auth-container">
-        <div id="loginBlock">
-            <h2>Login</h2>
-            <form id="loginForm">
-                <input type="email" id="loginEmail" placeholder="Email" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="#" onclick="toggleAuth()">Register</a></p>
-        </div>
+    <main>
+        <div class="auth-container">
+            <div id="loginBlock">
+                <h2>Log In</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit">Log In</button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="toggleAuth()">Sign Up</a></p>
+            </div>
 
-        <div id="registerBlock" style="display: none;">
-            <h2>Registration</h2>
-            <form id="registerForm">
-                <input type="email" id="regEmail" placeholder="Email" required>
-                <input type="password" id="regPassword" placeholder="Password" required>
-                <button type="submit">Create Account</button>
-            </form>
-            <p>Already have an account? <a href="#" onclick="toggleAuth()">Login</a></p>
-        </div>
+            <div id="registerBlock" style="display: none;">
+                <h2>Registration</h2>
+                <form id="registerForm">
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                    <button type="submit">Create Account</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="toggleAuth()">Log In</a></p>
+            </div>
 
-        <p id="statusMessage" style="font-weight: bold; margin-top: 15px;"></p>
-    </div>
+            <p id="statusMessage"></p>
+        </div>
+    </main>
 
     <script src="auth.js"></script>
 </body>
