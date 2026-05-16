@@ -53,7 +53,7 @@ function displayWeather(data) {
         <div class="weather-card">
             <h3>Weather in: ${name}</h3>
             <div class="weather-info">
-                <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${desc}">
+                <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Weather icon: ${desc}">
                 <div class="temp">${temp}°C</div>
                 <div class="details">
                     <p><strong>Condition:</strong> ${desc}</p>
@@ -67,6 +67,5 @@ function displayWeather(data) {
         </div>
     `;
 }
-
 
 
